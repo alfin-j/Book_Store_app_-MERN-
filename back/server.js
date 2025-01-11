@@ -76,6 +76,7 @@ app.post('/login', async (req, res) => {
             return res.status(404).json({ error: "User not found" });
         }
         // Compare entered password with the stored hashed password
+        //check for await is needed
         const isMatchPass = await bcrypt.compare(password, user.password);
 
         if (!isMatchPass) {

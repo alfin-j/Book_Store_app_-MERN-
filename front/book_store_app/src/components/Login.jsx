@@ -22,7 +22,7 @@ const Login = () => {
       console.log("Submitting data:", data);
 
       try {
-          const response = await fetch('http://localhost:5000/login', {
+          const response = await fetch('http://localhost:5002/login', {
               method: 'POST',
               headers: {
                   'Content-Type': 'application/json',
@@ -35,9 +35,12 @@ const Login = () => {
           if (response.ok) {
               const result = await response.json();
               console.log('Login successful:', result);
-              
+              console.log("fronedn token",result.token)
+              localStorage.setItem("authUser",result.token)
               // Redirect to Home page after successful login
               //`/home/${response.id}`
+              
+              
               navigate("/home"); 
           } else {
               const error = await response.json();
@@ -93,7 +96,7 @@ const Login = () => {
     </form>
     
     <p className='text-center text-sm text-gray-600 mt-4'>
-      Don't have an account? <Link to="/register" className='text-red-600 hover:text-red-800'>Register</Link>
+      Don't have an account? <Link to="/" className='text-red-600 hover:text-red-800'>Register</Link>
     </p>
     
     {/* Google Sign In */}

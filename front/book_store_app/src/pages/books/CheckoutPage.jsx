@@ -29,7 +29,7 @@ const CheckoutPage = () => {
         price: totalPrice, // Replace with dynamic values as needed
       };
       console.log(updatedData)
-      const response = await fetch("http://localhost:5000/checkout", {
+      const response = await fetch("http://localhost:5002/checkout", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

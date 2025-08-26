@@ -20,7 +20,7 @@ const Register = () => {
       console.log("Submitting data:", data);
       
       try {
-          const response = await fetch('http://localhost:5000/registerdata', {
+          const response = await fetch('http://localhost:5002/registerdata', {
               method: 'POST',
               headers: {
                   'Content-Type': 'application/json',

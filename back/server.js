@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors'); // Import CORS
 const bcrypt = require('bcrypt');
 const bodyParser = require('body-parser');
+const { generateToken } = require('./token/generate');
 
 const app = express();
 
@@ -83,7 +84,10 @@ app.post('/login', async (req, res) => {
             return res.status(401).json({ error: "Invalid credentials" });
         }
 
-        res.status(200).json({ message: "Login successful", id:user._id });
+        const token=generateToken({email})
+        console.log("token is",token)
+
+        res.status(200).json({ message: "Login successful", id:user._id ,token});
     } catch (error) {
         console.error("Error in /login:", error);
         res.status(500).json({ error: "Internal Server Error" });
@@ -107,7 +111,7 @@ app.get("/", (req, res) => {
     res.send("Hello, World!");
 });
 
-const port = 5000;
+const port = 5002;
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });

@@ -1,5 +1,5 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import Navbar from "./Navbar"
 import Home from "../pages/home/Home";
 const PrivateRoute = ({children}) => {

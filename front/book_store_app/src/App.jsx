@@ -7,7 +7,7 @@ function App() {
     <>
     
     {/* px-4 py-6 */}
-    <main className='min-h-screen max-w-screen-2xl mx-auto  font-primary'>      
+    <main className='min-h-screen max-w-screen-1xl mx-auto  font-primary'>      
       <Outlet />
     </main>
     <Footer/>

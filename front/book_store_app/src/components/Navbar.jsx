@@ -33,7 +33,7 @@ const Navbar = () => {
 
   return (
     <>
-    <header className="max-w-screen-2xl mx-auto px-4 py-6 bg-black bg-opacity-70 text-white shadow-lg relative z-50"
+    <header className="max-w-screen-1xl mx-auto px-4 py-6 bg-black bg-opacity-70 text-white shadow-lg relative z-50"
     >
   <nav className="flex justify-center items-center gap-12">
     {/* Left */}

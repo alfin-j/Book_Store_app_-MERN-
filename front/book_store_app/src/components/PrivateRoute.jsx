@@ -1,19 +1,21 @@
 import React from "react";
-import { Navigate } from "react-router-dom";
-import Navbar from "./Navbar";
-const PrivateRoute = ({ children }) => {
+import { Navigate, Outlet } from "react-router-dom";
+import Navbar from "./Navbar"
+import Home from "../pages/home/Home";
+const PrivateRoute = ({children}) => {
   const token = localStorage.getItem("authUser");
 
   if (!token) {
     return <Navigate to="/login" replace />;
   }
 
-  return (
+  return(
     <>
-      <Navbar />
-      {children}
+    <Navbar/>
+    {children}
     </>
-  );
+  )
 };
+
 
 export default PrivateRoute;

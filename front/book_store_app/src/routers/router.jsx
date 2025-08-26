@@ -6,6 +6,7 @@ import Register from "../components/Register";
 import CartPage from "../pages/books/CartPage";
 import CheckoutPage from "../pages/books/CheckoutPage";
 import Search from "../pages/books/Search";
+import PrivateRoute from "../components/PrivateRoute";
 
 const router =createBrowserRouter([
     {
@@ -22,23 +23,33 @@ const router =createBrowserRouter([
             },
             {///:id
                 path:"/home",
-                element:<Home/>
+                element:(<PrivateRoute>
+                    <Home/>
+                </PrivateRoute>)
             },
             {
                 path:"/cart",
-                element:<CartPage/>
+                element:(<PrivateRoute>
+                    <CartPage/>
+                </PrivateRoute>)
             },
             {
                 path:"/checkout",
-                element:<CheckoutPage/>
+                element:(<PrivateRoute>
+                    <CheckoutPage/>
+                </PrivateRoute>)
             },
             {
                 path:"/orders",
-                element: <h1>Orders</h1>
+                element: (<PrivateRoute>
+                    <h1>Orders</h1>
+                </PrivateRoute>)
             },
             {
                 path:"/search",
-                element:<Search/>
+                element:(<PrivateRoute>
+                    <Search/>
+                </PrivateRoute>)
             },
         ]
     },
